@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="concordia_about_test">
+    <test name="Concordia_About">
+        <classes>
+            <class name="com.ecvictor.testng.employee.AboutTopMenuTest"/>
+            <class name="com.ecvictor.testng.employee.AdmissionSubMenuTest"/>
+        </classes>
+    </test>
+</suite>

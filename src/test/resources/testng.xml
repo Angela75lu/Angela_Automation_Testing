@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="SuiteEmployee">
+    <test name="testeEmployeeDetail">
+        <classes>
+            <class name="com.ecvictor.testng.employee.EmployeeDetailsTest"/>
+        <!--    <class name="com.ecvictor.calculator.CalculatorTest"/>-->
+        </classes>
+    </test>
+</suite>
+
