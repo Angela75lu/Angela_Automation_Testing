@@ -15,6 +15,7 @@
 		<poi.version>3.11-beta3</poi.version>
 		<selenium-java.version>3.4.0</selenium-java.version>
 		<cucumber-testng.version>1.2.5</cucumber-testng.version>
+		<browserType>chrome</browserType>
 	</properties>
 	<packaging>jar</packaging>
 	<name>automation-testing</name>
@@ -184,6 +185,9 @@
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>${maven-surefire-plugin.version}</version>
                     <configuration>
+						<systemPropertyVariables>
+							<browser>${browserType}</browser>
+						</systemPropertyVariables>
                         <properties>
                             <property>
                                 <name>junit</name>
@@ -191,11 +195,12 @@
                             </property>
                         </properties>
                         <threadCount>1</threadCount>
-                        <suiteXmlFiles>
-                            <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
-                            <suiteXmlFile>src/test/resources/demo-store-suite.xml</suiteXmlFile>
-                            <suiteXmlFile>src/test/resources/anotation-suite.xml</suiteXmlFile>
-							<suiteXmlFile>src/test/resources/concordia_about_test.xml</suiteXmlFile>
+						<suiteXmlFiles>
+                           <!-- <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>-->
+                           <!-- <suiteXmlFile>src/test/resources/demo-store-suite.xml</suiteXmlFile>-->
+                          <!-- <suiteXmlFile>src/test/resources/anotation-suite.xml</suiteXmlFile>-->
+							<!--<suiteXmlFile>src/test/resources/concordia_about_test.xml</suiteXmlFile>-->
+							<suiteXmlFile>src/test/resources/pinpinEat.xml</suiteXmlFile>
                         </suiteXmlFiles>
                     </configuration>
 

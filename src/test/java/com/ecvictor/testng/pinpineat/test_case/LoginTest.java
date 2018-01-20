@@ -75,7 +75,7 @@ public class LoginTest extends PinPinUtil{
         return new Object[][] { {"yanqing_lu@yahoo.com","alina123"}};
     }
     //Both username and password are correct
-    // @Test(dataProvider="Authentication")
+    @Test(dataProvider="Authentication", groups={"login"})
     public void validLoginTest(String username, String password){
         String loginLink = "//*[@id=\"myNavBar\"]/ul/li[1]/a/span/span[2]";
         clickWhenReady(loginLink, 30, driver);

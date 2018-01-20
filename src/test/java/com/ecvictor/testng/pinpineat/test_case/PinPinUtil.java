@@ -20,6 +20,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
@@ -109,7 +110,7 @@ public class PinPinUtil {
                     Cell = Row.getCell(j);
                     if(Cell!=null) {
                         tabArray[ci][cj] = ExcelWSheet.getRow(i).getCell(j).toString();
-                        System.out.println(tabArray[ci][cj]);
+                      //  System.out.println(tabArray[ci][cj]);
                     }
                     else
                         tabArray[ci][cj] = null;
@@ -204,7 +205,7 @@ public class PinPinUtil {
         });
     }
 
-    public static void clickWhenReady(String link, int timeout,WebDriver driver) {
+    public void clickWhenReady(String link, int timeout,WebDriver driver) {
 
         WebElement element;
 
@@ -218,12 +219,25 @@ public class PinPinUtil {
 
     //populate sign up form
 
-    public static void elmentIsVisible(String link, int timeout, WebDriver driver){
+    public static void elmentIsVisible(String link, String type, int timeout, WebDriver driver){
 
         WebDriverWait wait = new WebDriverWait(driver, timeout);
+        if(type.equals("2")){
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(link)));
+        }
+        else {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(link)));
+        }
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(link)));
+    }
 
+    public void switchToNewWindow(String parentWin){
+        Set<String> handles = driver.getWindowHandles() ;
+        for(String winHandle : driver.getWindowHandles()){
+            if(parentWin.equalsIgnoreCase(winHandle))
+                continue;
+            driver.switchTo().window(winHandle);
+        }
     }
     public static boolean isClickable(WebDriver driver, WebElement element) {
         try {
